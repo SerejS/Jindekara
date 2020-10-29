@@ -2,4 +2,5 @@
 target
 Jindekara.iml
 WEB-INF
-*.xml
+beans.xml
+persistence.xml

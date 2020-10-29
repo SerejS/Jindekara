@@ -29,7 +29,7 @@
         </form>
 
         <% if (User.login(request)) {%>
-            <a href='jindekara.html'>Вход.</a><br>
+            <a href='jindekara.html'>Вход</a><br>
         <%} else %> Введите имя и пароль пользователя. <br>
         <a href='reg.jsp'>Регистрация</a><br>
     </body>
