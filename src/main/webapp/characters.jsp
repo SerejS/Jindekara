@@ -1,35 +1,34 @@
 <%@ page import="jsp.Characters" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<html >
+<html>
 <head>
 	<title>Персонажи</title>
 	<meta charset="UTF-8">
 	<style>
-		table {
-			background-color: #ffb905;
-		}
-
-		a {
-			text-decoration: none;
-		}
+		<%@include file="styles/characters.css"%>
 	</style>
 </head>
-<body style="background-color: gray">
+<body>
 <h1> Персонажи </h1>
 
-<table cellspacing="0" border="1px solid black">
+<table align="left">
 	<tr>
 		<th>Имя</th>
 		<th>Год рождения</th>
 		<th>Год смерти</th>
 		<th>Уровень</th>
 	</tr>
-	<%=Characters.out()%>
+	<%=Characters.outTable()%>
+	<tr><form>
+		<td colspan="4"><button type="submit" class="butTable" name="select" value="add">Добавить персонажа</button></td>
+	</form></tr>
 </table>
-<a href="add_characters.jsp">Добавить персонажа</a>
-<a href="del_characters.jsp">Удалить персонажа</a>
-<div style="position: relative; top: 440px;"><a href="jindekara.html">Назад</a></div>
+<div class="screen">
+	<jsp:include page="WEB-INF/subPages/character.jsp" />
+</div>
+
+<div style="position: relative; top: 240px;"><a href="jindekara.html">Назад</a></div>
 
 </body>
 </html>

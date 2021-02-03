@@ -36,7 +36,7 @@
         <input type="submit">
     </form>
 
-    <%= Characters.add(request)%>
+    <%=Characters.add(request)%>
 
     <div style="position: relative; top: 440px;"><a href="characters.jsp">Назад</a></div>
 </body>

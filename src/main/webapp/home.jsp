@@ -19,18 +19,19 @@
     </head>
 
     <body>
-        <form method='post'>
+        <h1>Авторизуйся!</h1>
+        <form method="POST">
             <label for="name">Имя:</label>
-            <input type='text' id='name' name='name'> <br>
+            <input type='text' id='name' name='name' required="required"> <br>
             <label for="pass">Пароль:</label>
-            <input type='password' id='pass' name ='pass'><br>
+            <input type='password' id='pass' name ='pass' required="required"><br>
 
-            <p><input type="submit"></p>
+            <p><input type="submit" value="Вход"></p>
         </form>
 
-        <% if (User.login(request)) {%>
-            <a href='jindekara.html'>Вход</a><br>
-        <%} else %> Введите имя и пароль пользователя. <br>
+        <% if (User.login(request)) {
+            response.sendRedirect("jindekara.html");
+        } %>
         <a href='reg.jsp'>Регистрация</a><br>
     </body>
 </html>
