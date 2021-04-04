@@ -15,7 +15,10 @@
 			<tr>
 				<td>Год</td> <td>Дата</td> <td>Событие</td>
 			</tr>
-			<%=Tales.outTable()%>
+
+			<tr th:each="event: ${events}">
+				<td th:text="${event.yearStart}"><td th:text="${event.dateStart}"><td th:text="${event.nameEvent}"/>
+			</tr>
 
 			<tr>
 				<form>
@@ -24,13 +27,16 @@
 			</tr>
 		</table>
 	</div>
-	<div class="event">
+
+
+
+	<!--<div class="event">
 		<%=Tales.outEvent(request.getParameter("event"), request.getParameter("select"))%>
 		<%=request.getParameter("del") != null ? Tales.del(Integer.parseInt(request.getParameter("event"))) : ""%>
 		<%=request.getParameter("edit") != null? Tales.edit(Integer.parseInt(request.getParameter("event")), request.getParameter("nameEvent"), Integer.parseInt(request.getParameter("yearEvent")), Integer.parseInt(request.getParameter("dateEvent")), request.getParameter("descEvent")) : ""%>
 
 		<%=request.getParameter("save") != null ? Tales.add(request.getParameter("nameEvent"), Integer.parseInt(request.getParameter("yearEvent")),Integer.parseInt(request.getParameter("dateEvent")),request.getParameter("descEvent")) : ""%>
-	</div>
+	</div>-->
 
 
 	<div style="position: relative; top: 440px;"><a href="jindekara.html">Назад</a></div>
