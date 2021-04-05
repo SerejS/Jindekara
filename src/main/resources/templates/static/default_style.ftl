@@ -1,3 +1,5 @@
+<style type="text/css">
+
 /*Environment*/
 body {
     background-color: gray;
@@ -62,3 +64,4 @@ input[type=number] {
     background-color: lightgrey;
     border: 1px solid black;
 }
+</style>
