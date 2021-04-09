@@ -22,6 +22,20 @@ public class Event {
 
     private Affect affect;
 
+    public Event() {
+
+    }
+
+    public Event(Long id, String nameEvent, short dateStart, short yearStart, short dateEnd, short yearEnd, Affect affect) {
+        this.id = id;
+        this.nameEvent = nameEvent;
+        this.dateStart = dateStart;
+        this.yearStart = yearStart;
+        this.dateEnd = dateEnd;
+        this.yearEnd = yearEnd;
+        this.affect = affect;
+    }
+
     public Long getId() {
         return id;
     }
@@ -76,5 +90,18 @@ public class Event {
 
     public void setAffect(Affect affect) {
         this.affect = affect;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "id=" + id +
+                ", nameEvent='" + nameEvent + '\'' +
+                ", dateStart=" + dateStart +
+                ", yearStart=" + yearStart +
+                ", dateEnd=" + dateEnd +
+                ", yearEnd=" + yearEnd +
+                ", affect=" + affect +
+                '}';
     }
 }
