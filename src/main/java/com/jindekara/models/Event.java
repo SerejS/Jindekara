@@ -34,6 +34,18 @@ public class Event {
         this.yearEnd = yearEnd;
         this.affect = affect;
     }
+/*
+
+    public void copy(Event event) {
+        nameEvent = event.getNameEvent();
+        dateStart = event.getDateStart();
+        dateEnd = event.getDateEnd();
+        yearStart = event.getYearStart();
+        yearEnd = event.getYearEnd();
+        affect = event.getAffect();
+    }
+*/
+
 
     public Long getId() {
         return id;
