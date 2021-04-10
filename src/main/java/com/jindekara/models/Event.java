@@ -23,7 +23,6 @@ public class Event {
     private Affect affect;
 
     public Event() {
-
     }
 
     public Event(Long id, String nameEvent, short dateStart, short yearStart, short dateEnd, short yearEnd, Affect affect) {

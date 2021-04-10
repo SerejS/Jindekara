@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @Controller
 public class TalesController {
@@ -15,7 +17,7 @@ public class TalesController {
     private EventRepository eventRepository;
 
     @RequestMapping(value = "/tales")
-    public String tales_page(Model model, @RequestParam(defaultValue = "0", value = "select") long id) {
+    public String tales_page(Model model, @RequestParam(defaultValue = "0", value = "select") Long id) {
         Iterable<Event> events = eventRepository.findAll(Sort.by(Sort.Direction.ASC, "yearStart"));
 
         model.addAttribute("select", id);
@@ -29,6 +31,12 @@ public class TalesController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("event") Event event) {
         eventRepository.save(event);
+        return "redirect:tales";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String delete(@RequestParam(value = "select") Long id) {
+        eventRepository.deleteById(id);
         return "redirect:tales";
     }
 }

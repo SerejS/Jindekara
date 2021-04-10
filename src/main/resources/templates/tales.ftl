@@ -24,5 +24,5 @@
 		</form>
 		</table>
 	</div>
-	<#include "parts/about_event.ftl">
+	<#include "parts/event/about_event.ftl">
 </@s.page>
