@@ -15,7 +15,6 @@ import java.util.Optional;
 public class TalesController {
     @Autowired
     private EventRepository eventRepository;
-    private Event event;
 
     @RequestMapping(value = "/tales")
     public String tales_page(Model model,
