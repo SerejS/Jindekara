@@ -6,7 +6,7 @@
 <table>
 	<form method="post">
 		<tr><td><button formaction="/tales">Сказания на все времена</button></td></tr>
-		<tr><td><button formaction="/characters">Персонажи</button></td></tr>
+		<tr><td><button formaction="/personages">Персонажи</button></td></tr>
 		<tr><td><button formaction="/bestiary">Бестиарий</button></td></tr>
 		<tr><td><button formaction="/maps">Карты</button></td></tr>
 	</form>
