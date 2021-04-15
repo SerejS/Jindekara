@@ -1,9 +1,5 @@
 package com.jindekara.functions;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.springframework.http.converter.json.GsonBuilderUtils;
-
 import java.io.*;
 
 public class FileUtils {
@@ -15,15 +11,16 @@ public class FileUtils {
         }
     }
 
-    public static String load(Long id) {
+    //Возвращает по id описание события из файла
+    public static String loadDesc(Long id) {
         File file = new File("desc_events/" + id + ".txt");
-        if (!file.exists()) return null;
+        if (!file.exists()) return "";
 
 
         StringBuilder stringBuilder = new StringBuilder("");
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while(br.ready()) {
-                stringBuilder.append(br.readLine() + "\n");
+                stringBuilder.append(br.readLine()).append("<br>");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -31,7 +28,7 @@ public class FileUtils {
         return stringBuilder.toString();
     }
 
-    public static void main(String[] args) {
-        System.out.println(load(1L));
+    public static String loadPrefEvent(Long id) {
+        return loadDesc(id).equals("") ? "" : "<b>Описание события:</b><br>" + loadDesc(id);
     }
 }

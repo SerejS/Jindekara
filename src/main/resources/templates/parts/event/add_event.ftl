@@ -23,6 +23,10 @@
                 </div>
             </div>
 
+            <div class="pb-4">
+                <textarea class="textarea is-link" placeholder="Описание события" name="description"></textarea>
+            </div>
+
             <div class="select is-rounded mb-3">
                 <select name="affect">
                     <option value="DEFAULT">Логос</option>

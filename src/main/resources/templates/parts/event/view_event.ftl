@@ -3,7 +3,9 @@
 </div>
 
 <div class="card-content">
-    Даты жизни: ${dates_of_event} <br>
+    <b>Даты события:</b> ${dates_of_event} <br>
 
-    Ключевое влияние на событие: ${selected_event.getAffect().getName()}<br>
+    <b>Ключевое влияние на событие:</b> ${selected_event.getAffect().getName()}<br>
+
+    ${description}
 </div>

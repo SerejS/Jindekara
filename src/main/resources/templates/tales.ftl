@@ -6,6 +6,8 @@
 			<#include "parts/event/table_event.ftl">
 		</div>
 
-		<#include "parts/event/about_event.ftl">
+		<div class="column">
+			<#include "parts/event/about_event.ftl">
+		</div>
 	</div>
 </@s.page>

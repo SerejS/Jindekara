@@ -1,6 +1,8 @@
 package com.jindekara.functions;
 
+//Работа с календарем Джиндекары
 public class JindekaraCalender {
+    //Перевод номера дня в формат день-месяц Джиндекары
     public static String numberDayToDate(short day) {
         if (day>390) return "30.13";
         else if (day < 1) return "01.01";

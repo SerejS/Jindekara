@@ -6,11 +6,8 @@
     <meta charset="UTF-8">
     <style>
         html {
-            background-color: lightgray !important;
+            background-color: gray !important;
             background-size: cover;
-        }
-        .footer-to-bottom {
-            padding-top: 12rem;
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +15,11 @@
 </head>
 
 <body>
-<#nested>
+<section class="section">
+    <div class="container">
+        <#nested>
+    </div>
+</section>
 </body>
 </html>
 </#macro>
