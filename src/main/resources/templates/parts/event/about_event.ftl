@@ -1,4 +1,4 @@
-<div class="event">
+<div class="column card has-background-warning">
     <#if select gt 0>
         <#include "view_event.ftl">
         <#include "buttons_event.ftl">

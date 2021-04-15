@@ -25,16 +25,18 @@
     }
 
     /*Show event*/
-    .event {
+    .sub_page {
         border: solid black 2px;
         background-color: #ffd06b;
         margin-left: 25em;
         margin-right: 20em;
         min-height: 15em;
+        margin-inside: 2em;
     }
     .butBar {
         color: #ffb905;
         background-color: rebeccapurple;
+        border-radius: 5px;
     }
 
     /*Add new event*/
@@ -47,14 +49,30 @@
     }
     li {
         list-style-type: none;
-        width: 310px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        display: inline-table;
     }
     input {
         background-color: lightgrey;
         border: 1px solid black;
         margin-bottom: 3px;
-        width: 30em;
+        width: 30.5em;
+
+        margin-right: 10px;
+        padding: 5px;
     }
+
+    input[type=radio] {
+        width: 10px;
+    }
+
+    input[type=number] {
+        width: 7em;
+        webkit-appearance: none
+    }
+
+
     #saveNew {
         background-color: lightgrey;
         border: 1px solid black;
@@ -62,6 +80,8 @@
 
     .field_set{
         border: 0;
+
+
     }
 
 </style>

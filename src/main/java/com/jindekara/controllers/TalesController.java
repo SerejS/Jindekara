@@ -2,11 +2,14 @@ package com.jindekara.controllers;
 
 import com.jindekara.models.Event;
 import com.jindekara.repo.EventRepository;
+import com.jindekara.functions.JindekaraCalender;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Optional;
 
@@ -24,7 +27,11 @@ public class TalesController {
 
         model.addAttribute("select", id);
         if (id > 0 && eventRepository.findById(id).isPresent()) {
-            model.addAttribute("selected_event", eventRepository.findById(id).get());
+            Event event = eventRepository.findById(id).get();
+            model.addAttribute("selected_event", event);
+            model.addAttribute("dates_of_event",
+                    JindekaraCalender.numberDayToDate(event.getDateStart()) + "." + event.getYearStart() + "-" +
+                    JindekaraCalender.numberDayToDate(event.getDateEnd()) + "." + event.getYearEnd());
         } else if (id < 0 && eventRepository.findById(-id).isPresent()) {
             model.addAttribute("selected_event", eventRepository.findById(-id).get());
         }
