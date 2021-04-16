@@ -12,15 +12,16 @@ public class FileUtils {
     }
 
     //Возвращает по id описание события из файла
-    public static String loadDesc(Long id) {
+    public static String loadDesc(Long id, String newLine) {
         File file = new File("desc_events/" + id + ".txt");
-        if (!file.exists()) return "";
-
+        if (!file.exists()) {
+            return "";
+        }
 
         StringBuilder stringBuilder = new StringBuilder("");
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             while(br.ready()) {
-                stringBuilder.append(br.readLine()).append("<br>");
+                stringBuilder.append(br.readLine()).append(newLine);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -28,8 +29,10 @@ public class FileUtils {
         return stringBuilder.toString();
     }
 
+    //Вывод события в формате для описания в html
     public static String loadPrefEvent(Long id) {
-        return loadDesc(id).equals("") ? "" : "<b>Описание события:</b><br>" + loadDesc(id);
+        String prettyOutPut = loadDesc(id, "<br>");
+        return prettyOutPut.equals("") ? "" : "<b>Описание события:</b><br>" + prettyOutPut;
     }
 
     public static boolean deleteDesc(Long id) {

@@ -35,7 +35,7 @@ public class TalesController {
         //Добавление параметров необходимых для изменения события
         else if (id < 0 && eventRepository.findById(-id).isPresent()) {
             model.addAttribute("selected_event", eventRepository.findById(-id).get());
-            model.addAttribute("description", FileUtils.loadDesc(id));
+            model.addAttribute("description", FileUtils.loadDesc(-id, "\n"));
         }
 
         return "tales";
