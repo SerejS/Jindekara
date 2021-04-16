@@ -46,4 +46,10 @@ public class PersonageController {
         return "redirect:../personages";
     }
 
+    @RequestMapping(value = "personages/delete", method = RequestMethod.POST)
+    public String delete_personage(@RequestParam("select") Long id) {
+        personageRepository.deleteById(id);
+        return "redirect:../personages";
+    }
+
 }
