@@ -16,7 +16,7 @@
 
         <tr class="has-background-warning">
             <td colspan="3">
-                <button type="submit" class="button is-warning" name="select" value="0">
+                <button type="submit" class="button is-warning is-fullwidth" name="select" value="0">
                     Добавить новое событие
                 </button>
             </td>

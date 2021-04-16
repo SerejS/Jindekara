@@ -24,6 +24,11 @@ public class Specialization {
         this.character_class = character_class;
     }
 
+    @Override
+    public String toString() {
+        return character_class + ", " + title;
+    }
+
     public Long getId() {
         return id;
     }

@@ -1,6 +1,6 @@
 <div class="card-content">
     <fieldset class="field_set">
-    <form method="post" name="event" action="edit">
+    <form method="post" name="event" action="tales/edit">
         <input name="select" type="hidden" value="${-select}">
 
         <div class="mb-2 pb-3">

@@ -1,6 +1,7 @@
 package com.jindekara.models;
 
 import com.jindekara.enums.Affect;
+import com.jindekara.functions.JindekaraCalender;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,6 +47,11 @@ public class Event {
     }
 */
 
+    public String getDateYearOfEvent() {
+        return JindekaraCalender.numberDayToDate(dateStart) + "." + yearStart
+                + " - " +
+                JindekaraCalender.numberDayToDate(dateEnd) + "." + yearEnd;
+    }
 
     public Long getId() {
         return id;

@@ -13,4 +13,9 @@ public enum PersonageClass {
     PersonageClass(String character_class) {
         this.character_class = character_class;
     }
+
+    @Override
+    public String toString() {
+        return character_class;
+    }
 }

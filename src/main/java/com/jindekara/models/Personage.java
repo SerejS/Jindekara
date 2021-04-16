@@ -1,6 +1,8 @@
 package com.jindekara.models;
 
 import com.jindekara.enums.Sex;
+import com.jindekara.functions.FileUtils;
+import com.jindekara.functions.JindekaraCalender;
 
 import javax.persistence.*;
 
@@ -12,7 +14,7 @@ public class Personage {
     private Long id;
 
     @Column(nullable = false)
-    private String name_character;
+    private String name;
     private short lvl;
     private short date_born;
     private short year_born;
@@ -28,10 +30,10 @@ public class Personage {
     public Personage() {
     }
 
-    public Personage(Long id, String name_character, short lvl, short date_born, short year_born,
+    public Personage(Long id, String name, short lvl, short date_born, short year_born,
                      short date_death, short year_death, Specialization specialisation, Sex sex) {
         this.id = id;
-        this.name_character = name_character;
+        this.name = name;
         this.lvl = lvl;
         this.date_born = date_born;
         this.year_born = year_born;
@@ -45,7 +47,7 @@ public class Personage {
     public String toString() {
         return "Personage{" +
                 "id=" + id +
-                ", name_character='" + name_character + '\'' +
+                ", name_character='" + name + '\'' +
                 ", lvl=" + lvl +
                 ", date_born=" + date_born +
                 ", year_born=" + year_born +
@@ -56,6 +58,12 @@ public class Personage {
                 '}';
     }
 
+    public String getDateYearOfLife() {
+        return JindekaraCalender.numberDayToDate(date_born) + "." + year_born
+                + " - " +
+                JindekaraCalender.numberDayToDate(date_death) + "." +year_death;
+    }
+
     public Long getId() {
         return id;
     }
@@ -64,12 +72,12 @@ public class Personage {
         this.id = id;
     }
 
-    public String getName_character() {
-        return name_character;
+    public String getName() {
+        return name;
     }
 
-    public void setName_character(String name_character) {
-        this.name_character = name_character;
+    public void setName(String name_character) {
+        this.name = name_character;
     }
 
     public short getLvl() {

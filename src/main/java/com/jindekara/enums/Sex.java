@@ -11,7 +11,8 @@ public enum Sex {
         this.sex = sex;
     }
 
-    public String getSex() {
+    @Override
+    public String toString() {
         return sex;
     }
 }
