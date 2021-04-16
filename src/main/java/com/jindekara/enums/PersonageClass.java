@@ -8,14 +8,14 @@ public enum PersonageClass {
     CRIMINAL("Преступик"),
     MIXED("Смешанный");
 
-    String character_class;
+    String personage_class;
 
-    PersonageClass(String character_class) {
-        this.character_class = character_class;
+    PersonageClass(String personage_class) {
+        this.personage_class = personage_class;
     }
 
     @Override
     public String toString() {
-        return character_class;
+        return personage_class;
     }
 }
