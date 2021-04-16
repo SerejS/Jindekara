@@ -1,6 +1,5 @@
 package com.jindekara.controllers;
 
-import com.jindekara.models.Event;
 import com.jindekara.models.Personage;
 import com.jindekara.repo.PersonageRepository;
 import com.jindekara.repo.SpecializationRepository;
@@ -26,13 +25,16 @@ public class PersonageController {
                                   @RequestParam(defaultValue = "0", value = "select") Long id) {
         Iterable<Personage> personages = personageRepository.findAll();
 
+        //В зависимости от режима отображения шаблону выдаются соответствующие атрибуты
         if (id > 0 && personageRepository.findById(id).isPresent()) {
             Optional<Personage> personage = personageRepository.findById(id);
             model.addAttribute("selected_personage", personage.get());
-        }
-
-        if (id <= 0) {
+        } else {
             model.addAttribute("specializations", specializationRepository.findAll());
+            if (id < 0) {
+                Optional<Personage> personage = personageRepository.findById(-id);
+                model.addAttribute("selected_personage", personage.get());
+            }
         }
 
         model.addAttribute("select", id);
@@ -46,10 +48,16 @@ public class PersonageController {
         return "redirect:../personages";
     }
 
+    @RequestMapping(value = "personages/edit", method = RequestMethod.POST)
+    public String edit_personage(@RequestParam("select") Long id, @ModelAttribute("personage") Personage personage) {
+        personage.setId(id);
+        personageRepository.save(personage);
+        return "redirect:../personages";
+    }
+
     @RequestMapping(value = "personages/delete", method = RequestMethod.POST)
     public String delete_personage(@RequestParam("select") Long id) {
         personageRepository.deleteById(id);
         return "redirect:../personages";
     }
-
 }
