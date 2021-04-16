@@ -54,6 +54,7 @@ public class TalesController {
     @RequestMapping(value = "tales/delete", method = RequestMethod.POST)
     public String delete(@RequestParam(value = "select") Long id) {
         eventRepository.deleteById(id);
+        FileUtils.deleteDesc(id);
         return "redirect:../tales";
     }
 

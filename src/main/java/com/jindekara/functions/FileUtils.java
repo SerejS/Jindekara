@@ -31,4 +31,9 @@ public class FileUtils {
     public static String loadPrefEvent(Long id) {
         return loadDesc(id).equals("") ? "" : "<b>Описание события:</b><br>" + loadDesc(id);
     }
+
+    public static boolean deleteDesc(Long id) {
+        File file = new File("desc_events/" + id + ".txt");
+        return file.delete();
+    }
 }
