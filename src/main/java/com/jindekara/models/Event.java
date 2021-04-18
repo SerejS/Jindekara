@@ -48,9 +48,13 @@ public class Event {
 */
 
     public String getDateYearOfEvent() {
-        return JindekaraCalender.numberDayToDate(dateStart) + "." + yearStart
-                + " - " +
-                JindekaraCalender.numberDayToDate(dateEnd) + "." + yearEnd;
+        if (yearStart == yearEnd && dateStart == dateEnd) {
+            return JindekaraCalender.numberDayToDate(dateStart) + "." +  yearStart;
+        } else {
+            return JindekaraCalender.numberDayToDate(dateStart) + "." + yearStart
+                    + " - " +
+                    JindekaraCalender.numberDayToDate(dateEnd) + "." + yearEnd;
+        }
     }
 
     public Long getId() {
