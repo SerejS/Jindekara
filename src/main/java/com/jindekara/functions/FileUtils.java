@@ -35,7 +35,7 @@ public class FileUtils {
     }
 
 
-    //Сохранение в файле
+    //Сохранение в файле описания события
     public static void saveDesc(Long id, String description) {
         save(id, description, "desc_events/");
     }
@@ -46,8 +46,24 @@ public class FileUtils {
         return prettyOutPut.equals("") ? "" : "<b>Описание события:</b><br>" + prettyOutPut;
     }
 
+    //Удаление файла описания события
     public static boolean deleteDesc(Long id) {
         return delete(id, "desc_events/");
     }
+
+
+    //Сохрание в файле биографии пресонажа
+    public static void saveBio(Long id, String biography) {
+        save(id, biography, "bio_personage");
+    }
+
+    //Вывод биографии персонажа
+    public static String loadBio(Long id) {
+        String prettyOutPut = load(id, "<br>", "bio_personage/");
+        return prettyOutPut.equals("") ? "" : "<b>Биография персонажа:</b><br>" + prettyOutPut;
+    }
+
+    //Удаление файла биографии персонажа
+    public static boolean deleteBio(Long id) {return delete(id, "bio_personage/");}
 
 }
