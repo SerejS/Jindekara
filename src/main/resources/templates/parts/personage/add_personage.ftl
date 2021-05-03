@@ -24,9 +24,6 @@
                     <label for="M" class="radio">М</label>
                     <input type="radio" name="sex" value="MAN" id="M"
                            class="radio-button">
-                    <label for="N" class="radio">Н</label>
-                    <input type="radio" name="sex" value="WOMAN" id="N"
-                           class="radio-button">
                     <label for="W">Ж</label>
                     <input type="radio" name="sex" value="NEUTRAL" id="W"
                            class="radio-button">

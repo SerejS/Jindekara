@@ -2,7 +2,6 @@ package com.jindekara.enums;
 
 public enum Sex {
     MAN("мужской"),
-    NEUTRAL("нейтральный"),
     WOMAN("женский");
 
     private final String sex;

@@ -45,7 +45,7 @@ public class TalesController {
     @RequestMapping(value = "tales/save", method = RequestMethod.POST)
     public String save(@ModelAttribute("event") Event event, @RequestParam String description) {
         eventRepository.save(event);
-        if (description != null) {
+        if (description != null && !description.equals("")) {
             FileUtils.save(event.getId(), description);
         }
         return "redirect:../tales";
@@ -63,7 +63,7 @@ public class TalesController {
                        @ModelAttribute("event") Event event,
                        @RequestParam String description) {
         event.setId(id);
-        if (description != null) {
+        if (description != null && !description.equals("")) {
             FileUtils.save(event.getId(), description);
         }
         eventRepository.save(event);
