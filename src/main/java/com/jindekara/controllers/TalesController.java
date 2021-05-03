@@ -30,12 +30,12 @@ public class TalesController {
         if (id > 0 && eventRepository.findById(id).isPresent()) {
             Event event = eventRepository.findById(id).get();
             model.addAttribute("selected_event", event);
-            model.addAttribute("description", FileUtils.loadPrefEvent(id));
+            model.addAttribute("description", FileUtils.loadDesc(id));
         }
         //Добавление параметров необходимых для изменения события
         else if (id < 0 && eventRepository.findById(-id).isPresent()) {
             model.addAttribute("selected_event", eventRepository.findById(-id).get());
-            model.addAttribute("description", FileUtils.loadDesc(-id, "\n"));
+            model.addAttribute("description", FileUtils.loadDesc(-id));
         }
 
         return "tales";
@@ -46,7 +46,7 @@ public class TalesController {
     public String save(@ModelAttribute("event") Event event, @RequestParam String description) {
         eventRepository.save(event);
         if (description != null && !description.equals("")) {
-            FileUtils.save(event.getId(), description);
+            FileUtils.saveDesc(event.getId(), description);
         }
         return "redirect:../tales";
     }
@@ -64,7 +64,7 @@ public class TalesController {
                        @RequestParam String description) {
         event.setId(id);
         if (description != null && !description.equals("")) {
-            FileUtils.save(event.getId(), description);
+            FileUtils.saveDesc(event.getId(), description);
         }
         eventRepository.save(event);
         return "redirect:../tales";
