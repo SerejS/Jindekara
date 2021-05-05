@@ -1,0 +1,63 @@
+body {
+    background-color: gray;
+}
+
+table {
+    background-color: #ffb905;
+    border: solid black 2px;
+    border-spacing: 0;
+    margin-right: 2em;
+    width: 25em;
+}
+td,th {
+    border: solid black 1px;
+}
+.butTable {
+    border: 0;
+    background-color: #ffb905;
+}
+
+.screen {
+    border: solid black 2px;
+    background-color: #ffd06b;
+    margin-left: 30em;
+    margin-right: 15em;
+    min-height: 15em;
+}
+li {
+    list-style-type: none;
+    width: 450px;
+    margin-bottom: 10px;
+}
+.butBar {
+    color: #ffb905;
+    background-color: rebeccapurple;
+}
+
+label {
+    width: 242px;
+    display: inline-block;
+    text-align: right;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    background-color: lightgrey;
+    border: 1px solid black;
+}
+input[type=number] {
+    width: 70px;
+}
+input[type=text] {
+    width: 154px;
+}
+textarea {
+    height: 100px;
+    width:  400px;
+    resize: none;
+    background-color: lightgray;
+    border: solid black 1px;
+}
