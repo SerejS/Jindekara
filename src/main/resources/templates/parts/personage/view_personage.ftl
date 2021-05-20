@@ -6,7 +6,8 @@
     <b>Годы жизни</b>: ${selected_personage.getDateYearOfLife()}<br>
     <b>Уровень</b>: ${selected_personage.getLvl()}<br>
     <b>Пол</b>: ${selected_personage.getSex()}<br>
-    <b>Специализация</b>: ${selected_personage.getSpecialisation()}
+    <b>Специализация</b>: ${selected_personage.getSpecialisation()}<br>
+    ${bio}
 </div>
 
 <form method="post" class="card-footer-item p-0">

@@ -1,4 +1,4 @@
-package com.jindekara.functions;
+package com.jindekara.util;
 
 import java.io.*;
 
@@ -54,7 +54,7 @@ public class FileUtils {
 
     //Сохрание в файле биографии пресонажа
     public static void saveBio(Long id, String biography) {
-        save(id, biography, "bio_personage");
+        save(id, biography, "bio_personage/");
     }
 
     //Вывод биографии персонажа

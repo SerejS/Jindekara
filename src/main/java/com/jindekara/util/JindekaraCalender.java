@@ -1,4 +1,4 @@
-package com.jindekara.functions;
+package com.jindekara.util;
 
 //Работа с календарем Джиндекары
 public class JindekaraCalender {

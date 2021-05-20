@@ -29,7 +29,7 @@
                 <div class="column">
                     <label for="M" class="radio">М</label>
                     <input type="radio" name="sex" value="MAN" id="M"
-                           class="radio-button">
+                           class="radio-button" required="required">
                     <label for="W" class="radio">Ж</label>
                     <input type="radio" name="sex" value="WOMAN" id="W"
                            class="radio-button">
@@ -56,6 +56,10 @@
                     <input type="number" name="year_death" placeholder="Год смерти"
                            class="input is-rounded" value="${selected_personage.getYear_death()?c}">
                 </div>
+            </div>
+
+            <div class="pb-4">
+                <textarea class="textarea is-link" placeholder="Биография персонажа" name="bio">${bio}</textarea>
             </div>
 
             <button type="submit" value="edit" class="button is-rounded">Изменить персонажа</button>

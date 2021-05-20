@@ -2,8 +2,7 @@ package com.jindekara.controllers;
 
 import com.jindekara.models.Event;
 import com.jindekara.repo.EventRepository;
-import com.jindekara.functions.JindekaraCalender;
-import com.jindekara.functions.FileUtils;
+import com.jindekara.util.FileUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -35,7 +34,8 @@ public class TalesController {
         //Добавление параметров необходимых для изменения события
         else if (id < 0 && eventRepository.findById(-id).isPresent()) {
             model.addAttribute("selected_event", eventRepository.findById(-id).get());
-            model.addAttribute("description", FileUtils.loadDesc(-id));
+            String desc = FileUtils.loadDesc(-id);
+            model.addAttribute("description", desc.substring(28, desc.length()-4));
         }
 
         return "tales";
@@ -43,7 +43,8 @@ public class TalesController {
 
 
     @RequestMapping(value = "tales/save", method = RequestMethod.POST)
-    public String save(@ModelAttribute("event") Event event, @RequestParam String description) {
+    public String save_event(@ModelAttribute("event") Event event,
+                             @RequestParam String description) {
         eventRepository.save(event);
         if (description != null && !description.equals("")) {
             FileUtils.saveDesc(event.getId(), description);
@@ -52,16 +53,16 @@ public class TalesController {
     }
 
     @RequestMapping(value = "tales/delete", method = RequestMethod.POST)
-    public String delete(@RequestParam(value = "select") Long id) {
+    public String delete_event(@RequestParam(value = "select") Long id) {
         eventRepository.deleteById(id);
         FileUtils.deleteDesc(id);
         return "redirect:../tales";
     }
 
     @RequestMapping(value = "tales/edit", method = RequestMethod.POST)
-    public String edit(@RequestParam(value = "select") Long id,
-                       @ModelAttribute("event") Event event,
-                       @RequestParam String description) {
+    public String edit_event(@RequestParam(value = "select") Long id,
+                             @ModelAttribute("event") Event event,
+                             @RequestParam String description) {
         event.setId(id);
         if (description != null && !description.equals("")) {
             FileUtils.saveDesc(event.getId(), description);

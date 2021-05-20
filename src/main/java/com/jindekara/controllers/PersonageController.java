@@ -1,5 +1,6 @@
 package com.jindekara.controllers;
 
+import com.jindekara.util.FileUtils;
 import com.jindekara.models.Personage;
 import com.jindekara.repo.PersonageRepository;
 import com.jindekara.repo.SpecializationRepository;
@@ -29,11 +30,14 @@ public class PersonageController {
         if (id > 0 && personageRepository.findById(id).isPresent()) {
             Optional<Personage> personage = personageRepository.findById(id);
             model.addAttribute("selected_personage", personage.get());
+            model.addAttribute("bio", FileUtils.loadBio(id));
         } else {
             model.addAttribute("specializations", specializationRepository.findAll());
             if (id < 0) {
                 Optional<Personage> personage = personageRepository.findById(-id);
                 model.addAttribute("selected_personage", personage.get());
+                String bio = FileUtils.loadBio(-id);
+                model.addAttribute("bio", bio.substring(31, bio.length()-4));
             }
         }
 
@@ -43,14 +47,23 @@ public class PersonageController {
     }
 
     @RequestMapping(value = "personages/save", method = RequestMethod.POST)
-    public String save_personage(@ModelAttribute("personage") Personage personage) {
+    public String save_personage(@ModelAttribute("personage") Personage personage,
+                                 @RequestParam String bio) {
         personageRepository.save(personage);
+        if (bio != null && !bio.equals("")) {
+            FileUtils.saveBio(personage.getId(), bio);
+        }
         return "redirect:../personages";
     }
 
     @RequestMapping(value = "personages/edit", method = RequestMethod.POST)
-    public String edit_personage(@RequestParam("select") Long id, @ModelAttribute("personage") Personage personage) {
+    public String edit_personage(@RequestParam("select") Long id,
+                                 @ModelAttribute("personage") Personage personage,
+                                 @RequestParam("bio") String bio) {
         personage.setId(id);
+        if (bio !=  null && !bio.equals("")) {
+            FileUtils.saveBio(personage.getId(), bio);
+        }
         personageRepository.save(personage);
         return "redirect:../personages";
     }
@@ -58,6 +71,7 @@ public class PersonageController {
     @RequestMapping(value = "personages/delete", method = RequestMethod.POST)
     public String delete_personage(@RequestParam("select") Long id) {
         personageRepository.deleteById(id);
+        FileUtils.deleteBio(id);
         return "redirect:../personages";
     }
 }

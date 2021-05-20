@@ -1,8 +1,7 @@
 package com.jindekara.models;
 
 import com.jindekara.enums.Sex;
-import com.jindekara.functions.FileUtils;
-import com.jindekara.functions.JindekaraCalender;
+import com.jindekara.util.JindekaraCalender;
 
 import javax.persistence.*;
 

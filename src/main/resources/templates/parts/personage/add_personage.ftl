@@ -23,8 +23,8 @@
                 <div class="column">
                     <label for="M" class="radio">М</label>
                     <input type="radio" name="sex" value="MAN" id="M"
-                           class="radio-button">
-                    <label for="W">Ж</label>
+                           class="radio-button" required="required">
+                    <label for="W" class="radio">Ж</label>
                     <input type="radio" name="sex" value="NEUTRAL" id="W"
                            class="radio-button">
                 </div>
@@ -50,6 +50,10 @@
                     <input type="number" name="year_death" placeholder="Год смерти"
                            class="input is-rounded">
                 </div>
+            </div>
+
+            <div class="pb-4">
+                <textarea class="textarea is-link" placeholder="Биография персонажа" name="bio"></textarea>
             </div>
 
             <br>

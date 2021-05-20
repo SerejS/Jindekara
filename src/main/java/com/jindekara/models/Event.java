@@ -1,7 +1,7 @@
 package com.jindekara.models;
 
 import com.jindekara.enums.Affect;
-import com.jindekara.functions.JindekaraCalender;
+import com.jindekara.util.JindekaraCalender;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
