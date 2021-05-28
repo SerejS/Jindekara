@@ -1,3 +1,5 @@
 .idea
 target
+*.txt
+*.iml
 HELP.md
