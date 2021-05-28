@@ -27,15 +27,13 @@ public class TalesController {
 
         //Добавление параметров необходимых для отображения конкретного события
         if (id > 0 && eventRepository.findById(id).isPresent()) {
-            Event event = eventRepository.findById(id).get();
-            model.addAttribute("selected_event", event);
-            model.addAttribute("description", FileUtils.loadDesc(id));
+            model.addAttribute("selected_event", eventRepository.findById(id).get());
+            model.addAttribute("description", FileUtils.loadDescHTML(id));
         }
         //Добавление параметров необходимых для изменения события
         else if (id < 0 && eventRepository.findById(-id).isPresent()) {
             model.addAttribute("selected_event", eventRepository.findById(-id).get());
-            String desc = FileUtils.loadDesc(-id);
-            model.addAttribute("description", desc.substring(28, desc.length()-4));
+            model.addAttribute("description", FileUtils.loadDesc(-id));
         }
 
         return "tales";

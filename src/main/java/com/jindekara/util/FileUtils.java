@@ -41,9 +41,14 @@ public class FileUtils {
     }
 
     //Вывод события в формате для описания в html
-    public static String loadDesc(Long id) {
+    public static String loadDescHTML(Long id) {
         String prettyOutPut = load(id, "<br>", "desc_events/");
         return prettyOutPut.equals("") ? "" : "<b>Описание события:</b><br>" + prettyOutPut;
+    }
+
+    //Вывод описания события для его изменения
+    public static String loadDesc(Long id) {
+        return load(id, "\n", "desc_events/");
     }
 
     //Удаление файла описания события
