@@ -21,6 +21,10 @@ public class Personage {
     private short year_death;
 
     @ManyToOne
+    @JoinColumn(name = "race_id")
+    private Race race;
+
+    @ManyToOne
     @JoinColumn(name="specialization_id")
     private Specialization specialisation;
 
