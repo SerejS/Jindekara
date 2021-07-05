@@ -15,11 +15,19 @@
 </head>
 
 <body>
+
+<#include "navbar.html">
+
 <section class="section">
     <div class="container">
         <#nested>
     </div>
 </section>
 </body>
+
+<script type="text/javascript">
+    <#include "../static/modal.js">
+</script>
+
 </html>
 </#macro>
