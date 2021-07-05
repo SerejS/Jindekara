@@ -2,4 +2,5 @@
 target
 *.txt
 *.iml
+*.properties
 HELP.md
