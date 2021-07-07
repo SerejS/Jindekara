@@ -1,28 +1,47 @@
-<#macro add fields>
+<#macro add fields action>
     <@layout "addWindow" "Добавить">
-        <#list fields as field>
-            <div class="field">
-                <label class="label">${field}</label>
-                <div class="control">
-                    <input class="input" type="text">
-                </div>
-            </div>
+        <fieldset>
+            <form method="post" name="race" action="${action}" id="formRace">
+                <#list fields as field>
+                    <div class="field">
+                        <label class="label">${field.title}</label>
+
+                        <#switch field.type>
+                            <#case "text">
+                                <div class="control">
+                                    <input class="input" type="${field.type}" name="${field.name_field}">
+                                </div>
+                                <#break>
+
+                            <#case "select">
+                                <div class="select is-fullwidth">
+                                    <select name="${field.name_field}">
+                                        <#list field.options as opt>
+                                            <option value="${opt.constr}">${opt.ru}</option>
+                                        </#list>
+                                    </select>
+                                </div>
+                        </#switch>
+                    </div>
+                    <br>
+                </#list>
+            </form>
+        </fieldset>
+
+    </@layout>
+</#macro>
+
+<#macro select main_fields info_fields>
+    <@layout "infoWindow" "Просмотр">
+        <#list main_fields as field>
+            <label class="label">${field.title}:</label>
+            <p class="description">  </p>
             <br>
         </#list>
-    </@layout>
-</#macro>
 
-<#macro edit fields info>
-    <@layout "editWindow" "Изменить">
-        Изменение какого-то содержания.
-    </@layout>
-</#macro>
-
-<#macro select fields info>
-    <@layout "infoWindow" "Просмотр">
-        <#list fields as field>
+        <#list info_fields as field>
             <label class="label">${field}:</label>
-            <p class="description"> Содержание </p>
+            <p class="file_description">  </p>
             <br>
         </#list>
     </@layout>
@@ -40,7 +59,7 @@
                 <#nested>
             </section>
             <footer class="modal-card-foot">
-                <button class="button is-warning">Ок</button>
+                <button class="button is-warning" id="sendButton">Ок</button>
             </footer>
         </div>
     </div>

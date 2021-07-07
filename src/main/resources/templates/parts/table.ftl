@@ -1,8 +1,8 @@
-<#macro table fields_name entities name_add>
+<#macro table main_fields entities name_add>
     <table class="table is-bordered is-striped has-background-warning">
         <tr class="has-background-warning">
-            <#list fields_name as field>
-                <td>${field}</td>
+            <#list main_fields as field>
+                <td>${field.title}</td>
             </#list>
         </tr>
 
@@ -25,7 +25,7 @@
 
 
         <tr class="has-background-warning">
-            <td colspan="${fields_name?size}">
+            <td colspan="${main_fields?size}">
                 <button class="button is-warning is-fullwidth" id="addBtn">
                     ${name_add}
                 </button>

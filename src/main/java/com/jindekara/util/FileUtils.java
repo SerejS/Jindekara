@@ -3,9 +3,11 @@ package com.jindekara.util;
 import java.io.*;
 
 public class FileUtils {
+    private static final String home_dir = "src/main/resources/full_info/";
+
     //Сохранение большой текствой информации файле определенной директорим
     private static void save(Long id, String content, String folder) {
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(folder + id + ".txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(home_dir + folder + id + ".txt"))) {
             bw.write(content);
         } catch (IOException e) {
             e.printStackTrace();
@@ -14,7 +16,7 @@ public class FileUtils {
 
     //Загрузка большой текстовой инофрмации из файла определенной директироии
     private static String load(Long id, String newLine, String folder) {
-        File file = new File( folder+ id + ".txt");
+        File file = new File( home_dir + folder + id + ".txt");
         if (!file.exists()) return "";
 
         StringBuilder stringBuilder = new StringBuilder("");
@@ -30,30 +32,30 @@ public class FileUtils {
 
     //Удаление файла с контентом
     private static boolean delete(Long id, String folder) {
-        File file = new File(folder + id + ".txt");
+        File file = new File(home_dir + folder + id + ".txt");
         return file.delete();
     }
 
 
     //Сохранение в файле описания события
     public static void saveDesc(Long id, String description) {
-        save(id, description, "desc_events/");
+        save(id, description, "src/main/com.jindekara.desc_events/");
     }
 
     //Вывод события в формате для описания в html
     public static String loadDescHTML(Long id) {
-        String prettyOutPut = load(id, "<br>", "desc_events/");
+        String prettyOutPut = load(id, "<br>", "src/main/com.jindekara.desc_events/");
         return prettyOutPut.equals("") ? "" : "<b>Описание события:</b><br>" + prettyOutPut;
     }
 
     //Вывод описания события для его изменения
     public static String loadDesc(Long id) {
-        return load(id, "\n", "desc_events/");
+        return load(id, "\n", "src/main/com.jindekara.desc_events/");
     }
 
     //Удаление файла описания события
     public static boolean deleteDesc(Long id) {
-        return delete(id, "desc_events/");
+        return delete(id, "src/main/com.jindekara.desc_events/");
     }
 
 
@@ -70,5 +72,14 @@ public class FileUtils {
 
     //Удаление файла биографии персонажа
     public static boolean deleteBio(Long id) {return delete(id, "bio_personage/");}
+
+    //Вывод описания слабостей
+    public static String loadWeakness(Long id) {
+        return load(id, "\n", "bestiary/weakness/");
+    }
+
+    public static String loadNote(Long id) {
+        return load(id, "\n", "bestiary/notes/");
+    }
 
 }
