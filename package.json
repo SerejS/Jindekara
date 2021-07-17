@@ -1,0 +1,21 @@
+{
+  "name": "jindekara",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel serve src/main/resources/public/static/*.jsx",
+    "build": "parcel build src/main/resources/public/static/*.jsx"
+  },
+  "targets": {
+    "app": {
+      "distDir": "src/main/resources/public/static/js"
+    }
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "bulma": "^0.9.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.3.1"
+  }
+}

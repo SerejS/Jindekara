@@ -1,8 +1,8 @@
 package com.jindekara.controllers;
 
+import com.jindekara.enums.SectionBestiary;
 import com.jindekara.models.Race;
 import com.jindekara.repo.RaceRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,15 +18,7 @@ public class BestiaryController {
     }
 
     @RequestMapping("/bestiary")
-    public String bestiary_page(Model model) {
-        model.addAttribute("races", raceRepository.findAll());
+    public String bestiary_page() {
         return "bestiary";
     }
-
-    @RequestMapping(value = "bestiary/save", method = RequestMethod.POST)
-    public String save_race(@ModelAttribute("race") Race race) {
-        raceRepository.save(race);
-        return ".";
-    }
-
 }

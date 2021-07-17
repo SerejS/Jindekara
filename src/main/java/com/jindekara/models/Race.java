@@ -17,7 +17,7 @@ import java.lang.reflect.Field;
 public class Race {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     //Название расы
     private String nameRace;
     //Средний уровень силы представителя
@@ -39,7 +39,7 @@ public class Race {
 
     public String[] getFields() {
         String[] fields = {nameRace,
-                strength.getStrength(),
+                strength.toString(),
                 Integer.toString(lifespan),
                 Integer.toString(population),
                 location,

@@ -1,5 +1,7 @@
 package com.jindekara.enums;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Regard {
     FRIENDLY("Дружелюбный"),
     NEUTRAL("Нейтральный"),
@@ -11,6 +13,7 @@ public enum Regard {
         this.regard = regard;
     }
 
+    @JsonValue
     public String getRegard() {
         return regard;
     }

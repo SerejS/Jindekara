@@ -20,9 +20,7 @@
 </section>
 </body>
 
-<script type="text/javascript">
-    <#include "../static/modal.js">
-</script>
+<script type="text/javascript" src="static/js/index.js"></script>
 
 </html>
 </#macro>

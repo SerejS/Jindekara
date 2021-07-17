@@ -1,10 +1,12 @@
 package com.jindekara.enums;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum SectionBestiary {
-    DEFAULT("Обчные"),
+    DEFAULT("Обычные"),
     DEMONS("Демоны"),
     REASONABLE("Разумные"),
-    SUB_RACES("Подрассы");
+    SUB_RACES("Подрасы");
 
     private final String section;
 
@@ -12,6 +14,7 @@ public enum SectionBestiary {
         this.section = section;
     }
 
+    @JsonValue
     public String getSection() {
         return section;
     }

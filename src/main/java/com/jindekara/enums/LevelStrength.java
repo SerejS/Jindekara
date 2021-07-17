@@ -1,5 +1,7 @@
 package com.jindekara.enums;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum LevelStrength {
     WEAKEST("Очень слабое"),
     WEAK("Слабое"),
@@ -13,6 +15,7 @@ public enum LevelStrength {
         this.strength = strength;
     }
 
+    @JsonValue
     public String getStrength() {
         return strength;
     }
