@@ -73,13 +73,20 @@ public class FileUtils {
     //Удаление файла биографии персонажа
     public static boolean deleteBio(Long id) {return delete(id, "bio_personage/");}
 
+    //Сохранение в файле слабостей расы
+    public static void saveWeakness(Long id, String weakness) {save(id, weakness, "bestiary/weakness/");}
+
     //Вывод описания слабостей
     public static String loadWeakness(Long id) {
         return load(id, "\n", "bestiary/weakness/");
     }
 
+    public static void saveNote(Long id, String note) {save(id, note, "bestiary/notes/");}
+
     public static String loadNote(Long id) {
         return load(id, "\n", "bestiary/notes/");
     }
+
+
 
 }

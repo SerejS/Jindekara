@@ -24,7 +24,7 @@ function Field(props) {
                 </div>
             break;
         case 'textarea':
-            input = <textarea className={"textarea"}/>
+            input = <textarea name={props.name} className={"textarea"}/>
             break;
         default:
             input = <input name={props.name} className={"input"} type={props.type} defaultValue={props.value}/>

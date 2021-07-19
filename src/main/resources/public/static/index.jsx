@@ -47,14 +47,17 @@ class App extends React.Component {
             .then(data => {
                 let textFields = this.props.fields.filter(item => item.type === 'textarea');
                 for (let i = 0; i < textFields.length; i++) {
-                    if(data[i] !== "") item[textFields[i].name_field] = data[i];
+                    if (data[i] !== "") item[textFields[i].name_field] = data[i];
                 }
+
                 this.setState({
                     isActive: true,
                     isForm: false,
                     selected: item
                 });
             });
+
+
     }
 
     openForm() {
@@ -78,7 +81,7 @@ class App extends React.Component {
                 newItem[field.name_field] =
                     field.options.find(item => item.constr === form.get(field.name_field))['ru'];
 
-            } else {
+            } else if (form.get(field.name_field) !== "") {
                 newItem[field.name_field] = form.get(field.name_field);
             }
         })
