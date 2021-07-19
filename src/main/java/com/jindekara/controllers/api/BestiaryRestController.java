@@ -1,5 +1,6 @@
 package com.jindekara.controllers.api;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.jindekara.models.Race;
 import com.jindekara.repo.RaceRepository;
 import com.jindekara.util.FileUtils;
@@ -19,12 +20,12 @@ public class BestiaryRestController {
         this.raceRepository = raceRepository;
     }
 
-    @RequestMapping(value = "races", method = RequestMethod.POST)
+    @PostMapping(value = "races")
     public List<Race> findAll() {
         return raceRepository.findAll();
     }
 
-    @RequestMapping(value = "info", method = RequestMethod.POST)
+    @GetMapping(value = "info")
     public List<String> getMoreInfo(@RequestParam("id") Long id) {
         return Arrays.asList(FileUtils.loadWeakness(id), FileUtils.loadNote(id));
     }

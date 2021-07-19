@@ -38,13 +38,23 @@ class App extends React.Component {
     }
 
     openInfo(id) {
-        const item = this.state.items.find(item => item.id === id);
+        let item = this.state.items.find(item => item.id === id);
 
-        this.setState({
-            isActive: true,
-            isForm: false,
-            selected: item
-        });
+        fetch(url+ "info?id="+id, {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                let textFields = this.props.fields.filter(item => item.type === 'textarea');
+                for (let i = 0; i < textFields.length; i++) {
+                    if(data[i] !== "") item[textFields[i].name_field] = data[i];
+                }
+                this.setState({
+                    isActive: true,
+                    isForm: false,
+                    selected: item
+                });
+            });
     }
 
     openForm() {
@@ -101,7 +111,6 @@ class App extends React.Component {
             .then(() => {
                 this.setState({
                     items: this.state.items.filter(item => item.id !== id)
-
                 });
             })
             .catch((error) => {
@@ -114,7 +123,7 @@ class App extends React.Component {
         return (
             <>
                 <Table
-                    fields={this.props.fields.map(item => item.title)}
+                    fields={this.props.fields.filter(item => item.type !== 'textarea').map(item => item.title)}
                     items={this.state.items}
                     info={this.openInfo}
                     form={this.openForm}
