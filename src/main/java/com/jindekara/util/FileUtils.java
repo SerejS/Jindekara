@@ -81,12 +81,17 @@ public class FileUtils {
         return load(id, "\n", "bestiary/weakness/");
     }
 
+    //Удаление файла слабостей персонажа
+    public static boolean deleteWeakness(Long id) {return delete(id, "bestiary/weakness/");}
+
     public static void saveNote(Long id, String note) {save(id, note, "bestiary/notes/");}
 
     public static String loadNote(Long id) {
         return load(id, "\n", "bestiary/notes/");
     }
 
+    //Удаление файла биографии персонажа
+    public static boolean deleteNotes(Long id) {return delete(id, "bestiary/notes/");}
 
 
 }

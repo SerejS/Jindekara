@@ -55,6 +55,10 @@ public class BestiaryRestController {
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         try {
             raceRepository.deleteById(id);
+
+            FileUtils.deleteWeakness(id);
+            FileUtils.deleteNotes(id);
+
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             e.printStackTrace();
