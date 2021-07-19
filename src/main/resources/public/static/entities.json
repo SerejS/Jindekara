@@ -1,6 +1,5 @@
 {
-    "races":
-    [
+    "races": [
         {
             "title": "Название расы",
             "name_field": "nameRace",
@@ -45,7 +44,7 @@
             "type": "text"
         },
         {
-            "title": "Вид еды",
+            "title": "Тип питания",
             "name_field": "food",
             "type": "select",
             "options": [
@@ -63,7 +62,8 @@
                 {"ru": "Нейтральный", "constr": "NEUTRAL"},
                 {"ru": "Враждебный", "constr": "HOSTILE"}
             ]
-        }, {
+        },
+        {
             "title": "Отношение к остальным",
             "name_field": "regardToAll",
             "type": "select",
@@ -72,5 +72,16 @@
                 {"ru": "Нейтральный", "constr": "NEUTRAL"},
                 {"ru": "Враждебный", "constr": "HOSTILE"}
             ]
-        }]
+        },
+        {
+            "title": "Слабости",
+            "name_field": "weakness",
+            "type": "textarea"
+        },
+        {
+            "title": "Заметки",
+            "name_field": "notes",
+            "type": "textarea"
+        }
+      ]
 }

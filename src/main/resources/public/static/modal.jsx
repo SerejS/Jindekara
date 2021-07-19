@@ -10,15 +10,25 @@ function Header(props) {
 }
 
 function Field(props) {
-    let input = props.type === "select"
-        ? <div class={"select is-fullwidth"}>
-            <select name={props.name}>
-                {props.options.map(({constr, ru}) =>
-                    <option value={constr}>{ru}</option>
-                )}
-            </select>
-        </div>
-        : <input name={props.name} className={"input"} type={props.type} defaultValue={props.value}/>
+    let input;
+
+    switch (props.type) {
+        case 'select':
+            input =
+                <div className={"select is-fullwidth"}>
+                    <select name={props.name}>
+                        {props.options.map(({constr, ru}) =>
+                            <option value={constr}>{ru}</option>
+                        )}
+                    </select>
+                </div>
+            break;
+        case 'textarea':
+            input = <textarea className={"textarea"}/>
+            break;
+        default:
+            input = <input name={props.name} className={"input"} type={props.type} defaultValue={props.value}/>
+    }
 
 
     return (
@@ -46,15 +56,19 @@ export default class Modal extends React.Component {
                                value={this.props.chosen !== null ? this.props.chosen[name_field] : ""}
                         />
                     )}
-                    <textarea className={"textarea"}/>
-                    <textarea className={"textarea"}/>
                 </fieldset>
             </form>)
-            : this.props.children.map(({title, name_field}) =>
-                <div>
-                    <b>{title}:</b><br/>
-                    <p>{this.props.chosen[name_field]}</p>
-                </div>
+            :
+            (
+                //Вывод только существующих полей полей
+                this.props.children.map(({title, name_field}) =>
+                    !this.props.chosen.hasOwnProperty(name_field) ? <></>
+                        :
+                        <>
+                            <b>{title}:</b><br/>
+                            <p>{this.props.chosen[name_field]}</p>
+                        </>
+                )
             )
 
         return (
