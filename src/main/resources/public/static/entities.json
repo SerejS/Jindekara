@@ -1,5 +1,5 @@
 {
-    "races": [
+    "bestiary": [
         {
             "title": "Название расы",
             "name_field": "nameRace",

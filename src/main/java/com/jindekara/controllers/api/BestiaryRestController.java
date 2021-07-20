@@ -1,6 +1,5 @@
 package com.jindekara.controllers.api;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.jindekara.models.Race;
 import com.jindekara.repo.RaceRepository;
 import com.jindekara.util.FileUtils;
@@ -8,10 +7,7 @@ import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -25,13 +21,13 @@ public class BestiaryRestController {
         this.raceRepository = raceRepository;
     }
 
-    @PostMapping(value = "races")
+    @PostMapping(value = "all")
     public List<Race> findAll() {
         return raceRepository.findAll();
     }
 
-    @GetMapping(value = "info")
-    public ResponseEntity<List<String>> getMoreInfo(@RequestParam("id") Long id) {
+    @GetMapping(value = "info/{id}")
+    public ResponseEntity<List<String>> getMoreInfo(@PathVariable("id") Long id) {
         return ResponseEntity
                 .ok()
                 .cacheControl(CacheControl.maxAge(2, TimeUnit.MINUTES))

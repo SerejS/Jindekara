@@ -4,7 +4,8 @@ import ReactDOM from "react-dom";
 import Table from "./table";
 import Modal from "./modal";
 
-const url = "/api/bestiary/";
+let section = window.location.pathname.substring(1)
+const url = "/api/" + section + "/";
 
 
 class App extends React.Component {
@@ -28,7 +29,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch(url + "races", {method: 'POST'})
+        fetch(url + "all", {method: 'POST'})
             .then(response => response.json())
             .then(data => {
                 this.setState({
@@ -40,9 +41,7 @@ class App extends React.Component {
     openInfo(id) {
         let item = this.state.items.find(item => item.id === id);
 
-        fetch(url+ "info?id="+id, {
-            method: 'GET',
-        })
+        fetch(url + "info/" + id, {method: 'GET'})
             .then(response => response.json())
             .then(data => {
                 let textFields = this.props.fields.filter(item => item.type === 'textarea');
@@ -86,8 +85,11 @@ class App extends React.Component {
             }
         })
 
+        console.log(newItem)
+
         if (this.state.selected !== null) {
             form.set('id', this.state.selected.id)
+            newItem.id = this.state.selected.id
             fetch(url + "save", {method: 'POST', body: form})
                 .then(() => {
                     this.setState({
@@ -152,6 +154,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App fields={(require("./entities.json"))['races']}/>,
+    <App fields={(require("./entities.json"))[section]}/>,
     document.getElementById('root')
 )
