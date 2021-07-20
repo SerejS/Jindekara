@@ -2,9 +2,9 @@ package com.jindekara.controllers.api;
 
 import com.jindekara.models.Event;
 import com.jindekara.repo.EventRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.jindekara.util.FileUtils;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +18,19 @@ public class TalesRestController {
     @PostMapping("all")
     public List<Event> findAll() {
         return eventRepository.findAll();
+    }
+
+    @DeleteMapping(value = "delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        try {
+            eventRepository.deleteById(id);
+
+            FileUtils.deleteDesc(id);
+
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.notFound().build();
+        }
     }
 }

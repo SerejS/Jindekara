@@ -18,9 +18,9 @@ public class Event {
     private String nameEvent;
 
     private short dateStart;
-    private short yearStart;
-
     private short dateEnd;
+
+    private short yearStart;
     private short yearEnd;
 
     private Affect affect;
