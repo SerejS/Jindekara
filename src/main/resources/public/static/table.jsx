@@ -18,20 +18,16 @@ class Rows extends React.Component {
     render() {
         return (this.props.items.map((item) =>
             <tr>
-                <td>
-                    <button className="button is-warning is-fullwidth"
-                            onClick={() => this.props.open(item.id)}>
-                        {item.nameRace}
-                    </button>
-                </td>
-                <td>{item.strength}</td>
-                <td>{item.lifespan}</td>
-                <td>{item.sectionBestiary}</td>
-                <td>{item.population}</td>
-                <td>{item.location}</td>
-                <td>{item.food}</td>
-                <td>{item.regardToHumanoid}</td>
-                <td>{item.regardToAll}</td>
+                {this.props.fields.map((field, index) =>
+                    index === 0 ?
+                        <td>
+                            <button className="button is-warning is-fullwidth"
+                                    onClick={() => this.props.open(item.id)}>
+                                {item[field]}
+                            </button>
+                        </td>
+                    : <td>{item[field]}</td>
+                )}
             </tr>
         ));
     }
@@ -65,6 +61,7 @@ export default class Table extends React.Component {
             <table class="table is-bordered is-striped has-background-warning">
                 <Thead header={this.props.fields}/>
                 <Rows
+                    fields={this.props.name_fields}
                     items={this.props.items}
                     open={this.props.info}
                 />

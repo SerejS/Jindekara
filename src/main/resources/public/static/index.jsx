@@ -129,6 +129,7 @@ class App extends React.Component {
             <>
                 <Table
                     fields={this.props.fields.filter(item => item.type !== 'textarea').map(item => item.title)}
+                    name_fields={this.props.fields.filter(item => item.type !== 'textarea').map(item => item.name_field)}
                     items={this.state.items}
                     info={this.openInfo}
                     form={this.openForm}

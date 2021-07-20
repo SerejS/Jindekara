@@ -83,5 +83,53 @@
             "name_field": "notes",
             "type": "textarea"
         }
+      ],
+
+      "tales": [
+        {
+          "title": "Название события",
+          "name_field": "nameEvent",
+          "type": "text"
+        },
+        {
+          "title": "Дата начала",
+          "name_field": "dateStart",
+          "type": "text"
+        },
+        {
+          "title": "Дата конца",
+          "name_field": "dateEnd",
+          "type": "text"
+        },
+        {
+          "title": "Год начала",
+          "name_field": "yearStart",
+          "type": "text"
+        },
+        {
+          "title": "Год конца",
+          "name_field": "yearEnd",
+          "type": "text"
+        },
+        {
+          "title": "Название события",
+          "name_field": "yearStart",
+          "type": "text"
+        },
+        {
+          "title": "Влияние на событие",
+          "name_field": "affect",
+          "type": "select",
+          "options": [
+            {"ru": "Логос","constr": "DEFAULT"},
+            {"ru": "Фаркс","constr": "FARKS"},
+            {"ru": "Алдуин","constr": "ALDUIN"},
+            {"ru": "Серана","constr": "SERANA"},
+            {"ru": "Архитектор","constr": "ARCHITECTOR"},
+            {"ru": "Демоны","constr": "DEMONS"},
+            {"ru": "Духи","constr": "SPIRITS"},
+            {"ru": "Герои","constr": "HEROES"}
+          ]
+        }
       ]
 }

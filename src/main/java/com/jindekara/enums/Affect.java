@@ -1,5 +1,7 @@
 package com.jindekara.enums;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
 public enum Affect {
     DEFAULT("Логос"),
     FARKS("Фаркс"),
@@ -16,6 +18,7 @@ public enum Affect {
         this.name = s;
     }
 
+    @JsonValue
     public String getName() {
         return name;
     }
