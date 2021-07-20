@@ -133,7 +133,7 @@ class App extends React.Component {
                     items={this.state.items}
                     info={this.openInfo}
                     form={this.openForm}
-                    footerName="Добавить новую расу"
+                    footerName="Добавить"
                 />
 
                 {this.state.isActive

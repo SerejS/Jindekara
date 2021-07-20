@@ -112,11 +112,6 @@
           "type": "text"
         },
         {
-          "title": "Название события",
-          "name_field": "yearStart",
-          "type": "text"
-        },
-        {
           "title": "Влияние на событие",
           "name_field": "affect",
           "type": "select",
