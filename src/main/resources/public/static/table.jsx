@@ -16,7 +16,7 @@ class Rows extends React.Component {
     }
 
     render() {
-        return (this.props.items.map((item) =>
+        return (this.props.items.map(item =>
             <tr>
                 {this.props.fields.map((field, index) =>
                     index === 0 ?
