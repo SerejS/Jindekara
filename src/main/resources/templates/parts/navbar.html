@@ -1,41 +1,72 @@
 <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
     <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item" href="/">
-                Домашняя страница
+
+
+        <a class="navbar-item" href="/">
+            О джиндекаре
+        </a>
+
+
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+                История
             </a>
 
-            <a class="navbar-item" href="/tales">
-                Сказания на все времена
+            <div class="navbar-dropdown">
+                <a class="navbar-item" href="/tales">
+                    Сказания на все времена
+                </a>
+                <a class="navbar-item" href="/documents">
+                    Документы
+                </a>
+            </div>
+        </div>
+
+        <a class="navbar-item" href="/locations">
+            Локации и карты
+        </a>
+
+        <a class="navbar-item" href="/items">
+            Предметы
+        </a>
+
+        <a class="navbar-item" href="/magic">
+            Магия
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="/bestiary">
+                Бестиарий
             </a>
 
-            <a class="navbar-item" href="/personages">
+            <div class="navbar-dropdown">
+                <a class="navbar-item" href="/bestiary?section=Обычные">
+                    Обычные существа
+                </a>
+                <a class="navbar-item" href="/bestiary?section=Разумные">
+                    Разумные
+                </a>
+                <a class="navbar-item" href="/bestiary?section=Демоны">
+                    Демоны
+                </a>
+                <a class="navbar-item" href="/bestiary?section=Подрасы">
+                    Подрасы
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="/personages">
                 Персонажи
             </a>
 
-
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    Бестиарий
+            <div class="navbar-dropdown">
+                <a class="navbar-item" href="/specializations">
+                    Специализации
                 </a>
-
-                <div class="navbar-dropdown">
-                    <a class="navbar-item" href="/bestiary?section=Обычные">
-                        Обычные существа
-                    </a>
-                    <a class="navbar-item" href="/bestiary?section=Разумные">
-                        Разумные
-                    </a>
-                    <a class="navbar-item" href="/bestiary?section=Демоны">
-                        Демоны
-                    </a>
-                    <a class="navbar-item" href="/bestiary?section=Подрасы">
-                        Подрасы
-                    </a>
-                </div>
             </div>
-
-
         </div>
+
+
     </div>
 </nav>
