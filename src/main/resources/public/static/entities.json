@@ -131,5 +131,47 @@
             "name_field": "desc_events",
             "type": "textarea"
         }
+      ],
+      "personages": [
+        {
+          "title": "Имя",
+          "name_field": "name",
+          "type": "text"
+        },
+        {
+          "title": "Уровень",
+          "name_field": "lvl",
+          "type": "text"
+        },
+        {
+          "title": "Дата рождания",
+          "name_field": "date_born",
+          "type": "text"
+        },
+        {
+          "title": "Год рождения",
+          "name_field": "year_born",
+          "type": "text"
+        },
+        {
+          "title": "Дата смерти",
+          "name_field": "date_death",
+          "type": "text"
+        },
+        {
+          "title": "Год смерти",
+          "name_field": "year_death",
+          "type": "text"
+        },
+        
+        {
+          "title": "Пол",
+          "name_field": "sex",
+          "type": "select",
+          "options": [
+            {"ru": "Мужчина", "constr": "M"},
+            {"ru":"Женщина", "constr": "W"}
+          ]
+        }
       ]
 }

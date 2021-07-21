@@ -1,7 +1,6 @@
 package com.jindekara.controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -11,13 +10,8 @@ public class MainController {
         return "jindekara";
     }
 
-    @RequestMapping(value = "/tales")
-    public String tales_page() {
-        return "tales";
-    }
-
-    @RequestMapping("/bestiary")
-    public String bestiary_page() {
-        return "bestiary";
+    @RequestMapping(value = {"/tales", "/bestiary", "/personages"})
+    public String table_page() {
+        return "default";
     }
 }

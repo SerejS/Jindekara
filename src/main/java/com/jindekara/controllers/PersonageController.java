@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Controller
 public class PersonageController {
-    @Autowired
+   /* @Autowired
     private PersonageRepository personageRepository;
     @Autowired
     private SpecializationRepository specializationRepository;
@@ -73,5 +73,5 @@ public class PersonageController {
         personageRepository.deleteById(id);
         FileUtils.deleteBio(id);
         return "redirect:../personages";
-    }
+    }*/
 }
