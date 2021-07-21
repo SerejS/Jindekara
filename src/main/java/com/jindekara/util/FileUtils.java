@@ -39,23 +39,23 @@ public class FileUtils {
 
     //Сохранение в файле описания события
     public static void saveDesc(Long id, String description) {
-        save(id, description, "src/main/com.jindekara.desc_events/");
+        save(id, description, "desc_events/");
     }
 
     //Вывод события в формате для описания в html
     public static String loadDescHTML(Long id) {
-        String prettyOutPut = load(id, "<br>", "src/main/com.jindekara.desc_events/");
+        String prettyOutPut = load(id, "<br>", "desc_events/");
         return prettyOutPut.equals("") ? "" : "<b>Описание события:</b><br>" + prettyOutPut;
     }
 
     //Вывод описания события для его изменения
     public static String loadDesc(Long id) {
-        return load(id, "\n", "src/main/com.jindekara.desc_events/");
+        return load(id, "\n", "desc_events/");
     }
 
     //Удаление файла описания события
     public static boolean deleteDesc(Long id) {
-        return delete(id, "src/main/com.jindekara.desc_events/");
+        return delete(id, "desc_events/");
     }
 
 
@@ -92,6 +92,4 @@ public class FileUtils {
 
     //Удаление файла биографии персонажа
     public static boolean deleteNotes(Long id) {return delete(id, "bestiary/notes/");}
-
-
 }

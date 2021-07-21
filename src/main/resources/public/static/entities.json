@@ -125,6 +125,11 @@
             {"ru": "Духи","constr": "SPIRITS"},
             {"ru": "Герои","constr": "HEROES"}
           ]
+        },
+        {
+            "title": "Описание события",
+            "name_field": "desc_events",
+            "type": "textarea"
         }
       ]
 }
