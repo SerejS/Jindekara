@@ -172,6 +172,11 @@
             {"ru": "Мужчина", "constr": "M"},
             {"ru":"Женщина", "constr": "W"}
           ]
+        },
+        {
+           "title": "Раса",
+           "name_field": "race",
+           "type": "class"
         }
       ]
 }

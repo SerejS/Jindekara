@@ -1,5 +1,6 @@
 package com.jindekara.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jindekara.enums.FoodChain;
 import com.jindekara.enums.LevelStrength;
 import com.jindekara.enums.Regard;
@@ -48,5 +49,11 @@ public class Race {
                 regardToAll.getRegard()
         };
         return fields;
+    }
+
+    @Override
+    @JsonProperty("string")
+    public String toString() {
+        return nameRace;
     }
 }
