@@ -23,10 +23,10 @@ class Rows extends React.Component {
                         <td>
                             <button className="button is-warning is-fullwidth"
                                     onClick={() => this.props.open(item.id)}>
-                                {item[field]}
+                                {item[field.name_field]}
                             </button>
                         </td>
-                    : <td>{item[field]}</td>
+                        : <td>{field.type !== 'class' ? item[field.name_field] : item[field.name_field].string}</td>
                 )}
             </tr>
         ));
@@ -58,10 +58,10 @@ export default class Table extends React.Component {
 
     render() {
         return (
-            <table class="table is-bordered is-striped has-background-warning">
-                <Thead header={this.props.fields}/>
+            <table className="table is-bordered is-striped has-background-warning">
+                <Thead header={this.props.fields.map(item => item.title)}/>
                 <Rows
-                    fields={this.props.name_fields}
+                    fields={this.props.fields}
                     items={this.props.items}
                     open={this.props.info}
                 />

@@ -61,12 +61,12 @@ export default class Modal extends React.Component {
             :
             (
                 //Вывод только существующих полей полей
-                this.props.children.map(({title, name_field}) =>
+                this.props.children.map(({title, name_field, type}) =>
                     !this.props.chosen.hasOwnProperty(name_field) ? <></>
                         :
                         <>
                             <b>{title}:</b><br/>
-                            <p>{this.props.chosen[name_field]}</p>
+                            <p>{type !== 'class' ? this.props.chosen[name_field] : this.props.chosen[name_field].string}</p>
                         </>
                 )
             )
