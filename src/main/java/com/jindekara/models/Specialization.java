@@ -1,5 +1,6 @@
 package com.jindekara.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.jindekara.enums.PersonageClass;
 import lombok.Data;
 
@@ -15,6 +16,7 @@ public class Specialization {
     String title;
     PersonageClass personage_class;
 
+    @JsonProperty("string")
     @Override
     public String toString() {
         return personage_class + ", " + title;

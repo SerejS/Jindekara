@@ -177,6 +177,11 @@
            "title": "Раса",
            "name_field": "race",
            "type": "class"
+        },
+        {
+            "title": "Специализция",
+            "name_field": "specialization",
+            "type": "class"
         }
       ]
 }

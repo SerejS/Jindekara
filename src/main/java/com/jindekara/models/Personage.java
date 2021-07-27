@@ -28,7 +28,7 @@ public class Personage {
 
     @ManyToOne
     @JoinColumn(name="specialization_id")
-    private Specialization specialisation;
+    private Specialization specialization;
 
     private Sex sex;
 
